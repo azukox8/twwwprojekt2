@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="icon" href="/images//icon.png">  
+
+
+</head>
+
+<body>
+
+  <div class="title">
+    <div class="container text-center">
+
+      <h1><img src="images/icon.png"><%= title %></h1>
+      <p>Wypożyczalnia pianin</p>
+    </div>
+  </div>
+
+  <nav class="menu">
+    <li><a href="index">Strona główna</a></li>
+    <li><a href="pianina">Pianina</a></li>
+    <li><a href="zasady">Zasady</a></li>
+    <li class="active"><a href="kontakt">Kontakt</a></li>
+  </nav>
+  <div class="bodybelow">
+    <article class="kontakt">
+
+      <div class="info">
+
+
+        <h2> Skontaktuj się z nami</h2>
+        <p>
+          Telefon: 472936352<br />
+          E-mail: <a href="mailto:piano4u@gmails.com">piano4u@gmails.com</a><br><br>
+        <div class="form" id="kontaktform">
+
+          <form action="/kontakt" method="POST" id="formid" autocomplete="off">
+            <label for="fname">Imię</label>
+
+            <input type="text" id="fname" name="firstname">
+
+            <label for="lname">Nazwisko</label>
+            <input type="text" id="lname" name="lastname">
+
+            <label for="subject">Wiadomość</label>
+            <textarea id="subject" name="subject" style="height:200px"></textarea>
+
+            <input type="submit" value="Wyślij">
+          </form>
+          <% if(userValue!=null){ %>    
+            <div> <br>Wysłano wiadomość jako <%= userValue.first %>  <%= userValue.last %>, o treści: <%= userValue.subject %> </div>
+          <%}%> 
+        </div>
+        </p>
+        <h2>Adres</h2>
+        <p>
+          Cystersów 21<br>
+          31-553 Kraków<br><br>
+        </p>
+        <h2>Godziny otwarcia</h2>
+        <p>
+          poniedziałek-piątek: 17:00-21:00<br>
+          sobota: 9:00-21:00
+        </p>
+
+
+      </div>
+
+      <div class="mapa">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2561.2241414805817!2d19.968603264418018!3d50.06336384363489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165b251a96d943%3A0x9df08b9e1117e93a!2sCysters%C3%B3w%2021%2C%2031-553%20Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1670863110674!5m2!1spl!2spl"></iframe>
+      </div>
+
+
+
+    </article>
+  </div>
+
+  <footer>
+    <p>Copyright © 2022 Piano4U. Wszelkie prawa zastrzeżone.</p>
+  </footer>
+
+</body>
+
+</html>
