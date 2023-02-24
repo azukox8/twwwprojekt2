@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <link rel="icon" href="images/icon.png">
+
+</head>
+<body>
+
+<div class="title">
+  <div class="container text-center">
+    
+    <h1><img src="images/icon.png"><%= title %></h1>      
+    <p>Wypożyczalnia pianin </p>
+  </div>
+</div>
+
+<nav class="menu">
+
+        <li><a href="index">Strona główna</a></li>
+        <li><a href="pianina">Pianina</a></li>
+        <li class="active"><a href="zasady">Zasady</a></li>
+        <li><a href="kontakt">Kontakt</a></li>
+</nav>
+
+<div class="bodybelow">
+  <article class="main-content">
+
+    <div class="zasady">
+
+        <h1> Zasady wynajmu</h1>
+        <h2>1.</h2>
+        <p>
+            Wybierasz instrument oraz sposób jego odbioru:<br>- osobiście lub<br>
+            - za naszym pośrednictwem
+              (w Warszawie i okolicach pianino przywieziemy i podłączymy u Ciebie) lub<br>
+            - za pośrednictwem kuriera (w przypadku miejsc odległych od naszej siedziby)
+        </p>
+        <h2>2.</h2>
+        <p>
+            Podpisujesz umowę (w naszej siedzibie lub u siebie). Wzór umowy wcześniej podeślemy do Ciebie mailowo. 
+            Umowa jest na czas nieokreślony, więc nie musisz określać okresu wypożyczenia. Los wypożyczonego pianina możesz zmienić już po:<br>
+            - 1 miesiącu w przypadku pianin przenośnych,<br>- 3 miesiącach w przypadku pianin meblowych,<br>- 1 dniu w przypadku stage piano.
+        </p>
+        <h2>3.</h2>
+        <p>
+            Opłacasz kaucję oraz pierwszy miesiąc umowy z góry (gotówką, przelewem lub kartą).
+        </p>
+        <h2>4.</h2>
+        <p>
+            Cieszysz się wypożyczonym pianem oraz swobodą decydowania o jego losie.<br>Pianino możesz:<br>- wypożyczać w dalszym ciągu, opłacając kolejny miesiąc przelewem lub
+            <br>- zwrócić (my zwrócimy wtedy kaucję) lub <br>- odkupić (wpłacona kaucja pomniejszy cenę odkupienia, podobnie jak połowa zapłaconych miesięcznych rat).
+        </p>
+    </div>
+
+    <div class="umowa">
+        <div class ="umowacontent">
+          <img src="images/umowa.jpg">
+  
+        </div>
+        <div class ="umowacontent">
+            <h2>Umowa</h2>
+          <p>Umowa składa się z:<br>
+            - części głównej opisującej podstawowe zasady najmu oraz zawierającej dane kontaktowe
+            <br>- warunków gwarancji (jeśli w czasie wynajmu pianino nie będzie prawidłowo działać, możesz skorzystać z pianina zastępczego lub nie płacić czynszu; obowiązują wyłączenia dotyczące m.in. winy użytkownika)
+            <br>- cennika odkupienia (z każdym miesiącem najmu cena odkupienia zmniejszana jest o połowę miesięcznych rat. Dzięki temu realny miesięczny koszt wynajmu będzie wynosić min. 54,5 zł)
+          </p>
+        </div>
+    </div>
+
+  </article>
+</div>
+
+<%- include('foot') -%>
+
+
+</body>
+</html>

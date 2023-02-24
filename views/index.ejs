@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="icon" href="/images/icon.png">
+</head>
+<body>
+
+<div class="title">
+  <div class="container text-center"> 
+    <h1><img src="images/icon.png"><%= title %></h1>      
+    <p>Wypożyczalnia pianin</p>
+  </div>
+</div>
+
+
+<nav class="menu">
+
+        <li class="active"><a href="index">Strona główna</a></li>
+        <li><a href="pianina">Pianina</a></li>
+        <li><a href="zasady">Zasady</a></li>
+        <li><a href="kontakt">Kontakt</a></li>
+</nav>
+<div class="bodybelow">
+  <article class="main-content">
+    <div id="gora">
+        <p>Jeśli:</p>
+        <p> - zaczynasz przygodę z pianinem i zastanawiasz się, czy kupiony instrument szybko nie trafi w kąt,</p>
+        <p> - chcesz przetestować dany model,</p>
+        <p> - potrzebujesz pianina na krótki czas</p>
+        <p>  jesteś we właściwym miejscu </p>
+    </div>
+
+    <div id="atutytytuł">
+      <h1>Atuty:</h1>      
+    </div>
+
+    <div class="atuty">
+
+      <div class="atut">
+        <img src="images/1.png">
+        <p>Minimalny czas wypożyczenia to 1 dzień</p>
+      </div>
+      <div class="atut">
+        <img src="images/2.png">
+        <p>Od 109 zł miesięcznie</p>
+      </div>
+    </div>
+    
+    <div class="atuty">
+      
+      <div class="atut">
+        <img src="images/3.png">
+        <p>Spodobał się instrument? Odkupisz go taniej o połowę dokonanych płatności</p>
+      </div>
+      
+      <div class="atut">
+        <img src="images/4.png">
+        <p>Możliwy transport</p>
+      </div>
+    </div>
+      
+    <div class="onas">
+
+      <div class ="onascontent">
+        <h1>O NAS</h1>
+
+      </div>
+      <div class="break"></div>
+      <div class ="onascontent">
+        <img src="images/pianoplay2.jpg">
+
+      </div>
+      <div class ="onascontent">
+
+        <p>Piano4U to hobbystyczna firma założona w 2022 r. Powstaliśmy z zamiłowania do muzyki oraz podróży. Początkowo skupialiśmy się na sprzedaży sprowadzanych z zagranicy pianin, jednak na życzenie wielu osób rozpoczęliśmy również wynajem z opcją odkupienia. Teraz jesteśmy dumni z licznych poleceń oraz współpracy ze szkołami muzycznymi.  
+        </p>
+      </div>
+      
+      <% if(results!=null){ %>    
+        <div style="flex: 40%;padding: 50px 50px; font-size: 2.4rem; background-color:rgba(255, 114, 156, 0.4);">
+          Aktualna liczba zamówień: <%= results %>
+        </div>
+    <%}%> 
+
+    </div>
+
+  </article>
+</div>
+
+<%- include('foot') -%>
+
+</body>
+</html>

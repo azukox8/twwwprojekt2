@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="icon" href="images/icon.png">
+    <script>
+        function openForm() {
+            document.getElementById("formzamowienie").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("formzamowienie").style.display = "none";
+        } </script>
+
+
+</head>
+
+<body>
+
+    <div class="title">
+        <div class="container text-center">
+
+            <h1><img src="images/icon.png"><%= title %></h1>
+            <p>Wypożyczalnia pianin</p>
+        </div>
+    </div>
+
+    <nav class="menu">
+
+        <li><a href="index">Strona główna</a></li>
+        <li class="active"><a href="pianina">Pianina</a></li>
+        <li><a href="zasady">Zasady</a></li>
+        <li><a href="kontakt">Kontakt</a></li>
+    </nav>
+
+    <div class="bodybelow">
+        <button class="open-button" onclick="openForm()">Wynajmij</button>
+        <% if(blad){ %>  
+            <div style="background-color:aliceblue;text-align: center; margin: 0 0 20px; padding:20px 0;font-size: 2rem;""> 
+                Brak połączenia z bazą! <br>Spróbuj ponownie później
+            </div>
+        <%} else if(userValue!=null){ %>    
+            <div style="background-color:aliceblue;text-align: center; margin: 0 0 20px; padding:20px 0;font-size: 2rem;"> 
+                Złożono zamówienie dla <%= userValue.first %>  <%= userValue.last %>  (email:  <%= userValue.email %>) <br> Model: <%= userValue.model %><br>Na okres: <%= userValue.okres %> msc
+                <br> Zamówienie zostanie potwierdzone wiadomością email wraz z danymi do przelewu.
+            </div>
+        <%}%>  
+        <div class="form-popup" id="formzamowienie">
+            <form action="/pianina" method="POST"  id="form-container" autocomplete="off">
+                <h1>Złóż zamówienie</h1>
+
+                <label for="imie1"><b>Imię</b></label>
+                <input type="text" id="imie1" name="imie1" required>
+
+                <label for="nazwisko1"><b>Nazwisko</b></label>
+                <input type="text" id="nazwisko1" name="nazwisko1" required>
+
+                <label for="email"><b>E-mail</b></label>
+                <input type="text" id="email" name="email" required>
+
+
+                <label for="pianinowybierz">Wybrany model:</label>
+                <select id="pianinowybierz" name="pianinowybierz" style="width:140px; height:30px;">
+                    <% pianina.forEach(function(pianino) { %>
+                        <option value="<%= pianino.model %>""><%= pianino.model %></option>
+                    <% }); %>
+
+                </select>
+                <br><br>
+
+                <label for="okres"><b>Okres wynajmu(msc)</b></label>
+                <input type="text" id="okres" name="okres" required>
+
+                <button type="submit" class="btn">Wyślij</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Anuluj</button>
+            </form>
+        </div>
+        <div id="pianinatytul">
+            <h1>Dostępne pianina:</h1>
+        </div>
+
+
+        <% pianina.forEach(function(pianino) { %>
+            <div class="pianina">
+                <div>
+                    <img src=<%= pianino.src %>>
+                </div>
+                <div class="pianino">
+                    <h2><%= pianino.model %></h2><br>
+                    <p><%= pianino.opis %></p>
+                </div>
+                <div class="cena">
+                    <p><%= pianino.cena %></p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <%- include('foot') -%>
+
+
+</body>
+
+</html>
